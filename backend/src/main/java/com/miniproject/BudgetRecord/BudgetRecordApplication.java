@@ -1,4 +1,4 @@
-package com.miniproject.BudgetRecord;
+package com.miniproject.budgetrecord;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

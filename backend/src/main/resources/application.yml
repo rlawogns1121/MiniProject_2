@@ -8,19 +8,20 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: jdbc:mariadb://localhost:3306/ledger
-    username: ledger
-    password: ledgerpw
+    url: jdbc:h2:mem:budgetdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
   jpa:
     hibernate:
-      ddl-auto: update   # 개발 중만 사용, 운영은 validate
+      ddl-auto: update
+    show-sql: true
     properties:
-      hibernate:
-        format_sql: true
-        jdbc.time_zone: UTC
-  jackson:
-    serialization:
-      WRITE_DATES_AS_TIMESTAMPS: false
+      hibernate.format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
 server:
   port: 8080
